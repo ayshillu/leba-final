@@ -1,0 +1,460 @@
+
+.contact a,.mail a{
+    color:#333232;
+    opacity:0.9;
+    font-size:17px;
+    font-family: 'Roboto-Medium';
+    
+}
+.contact .ph-no {
+    pointer-events: none;
+}
+.contact a{
+    margin-left:2px;
+}
+.mail a{
+    margin-right:2px;
+}
+.contact{
+    text-align:center;
+}
+.mail{
+    text-align:center;
+}
+.contact a img{
+    padding-right:10px;
+}
+.contact{
+    text-align:right;
+}
+.mail a img{
+    /* padding-left:10px; */
+    padding:0 10px;
+}
+.mail{
+    text-align:left;
+}
+.mail a{
+    color:#000;
+}
+.con-box a img{
+    width: 40%;
+    margin: 7px 20px;
+
+}
+.con-box{
+    background: linear-gradient(180deg, #6F6F6F 0%, rgba(122, 121, 121, 0) 114.67%);
+    /* border-style: solid; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    padding: 13px;
+    border-radius: 10px;
+}
+.soc-book{
+    position: absolute;
+    top: -72%;
+    left: 40%;
+    background: #fff;
+    padding: 15px 5px 0 5px;
+
+}
+.con-box:before, .con-box:after{
+    background-color:  #423C3D;
+    position:absolute; 
+    content: '';
+    height: 12px;
+
+    width: 12px; 
+    border-radius:50%;
+    bottom: 26px;
+}
+.con-box:before{
+    left:-52px;
+}
+.con-box:after{
+    right:-52px;
+}
+.box-line{
+    width:60px;
+    height:2px;
+    background-color:#423C3D;
+    margin:auto;
+    position:relative;
+    
+}
+.con-layer{
+    position: absolute;
+    width: 98%;
+    /* height: 60px; */
+    height:92%;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    margin: 2px;
+    z-index: -1;
+    border-radius: 9px;
+}
+.foot-contacts{
+    
+    margin-left:70px;
+    margin-right:100px;
+}
+
+.thin-footer {
+    background: #131414;;
+    padding: 10px 0;
+  }
+  .thin-footer p {
+    font-size: 13px;
+    color: #dededec4;
+    margin-bottom: 0px;
+    font-family: 'Roboto-Regular';
+  }
+  .thin-footer p a {
+    text-decoration: none;
+    color: #dededec4;
+  }
+  .footer-inner{
+    padding-top:80px;
+    padding-bottom:40px;
+  }
+  .contact img{
+    width:7%;
+  }
+  .mail img{
+    width:11%;
+    object-fit:contain;
+  }
+  .mails{
+    display:flex;
+
+  }
+  .thin-footer{
+    position:relative;
+  }
+  .foot-poly{
+    position:absolute;
+    left:50%;
+    top:-45%;
+    transform:translate(-50%,0);
+  }
+  
+  
+
+  @media (max-width: 600px) {
+  
+    .thin-footer p {
+      font-size: 12px;
+      text-align: center;
+      color:#dededec4;
+    }
+    .contact .ph-no {
+        pointer-events: unset;
+    }
+    
+  }
+  
+
+
+  @media(min-width:992px) and (max-width:1198px){
+    .foot-contacts{
+    
+        margin-left:0;
+        margin-right:0;
+    }
+    .contact{
+        text-align:center;
+    }
+    .mail{
+        text-align:center;
+    }
+    /* .con-layer{
+        width:199px;
+    } */
+    .con-layer{
+        width:98%;
+    }
+    .contact img{
+        width:24px;
+    }
+    .mail img{
+        width:34px;
+    }
+    
+  }
+  @media(min-width:1190px) and (max-width:1198px){
+    .con-box::before{
+        left:-64px !important;
+    }
+    .con-box::before, .con-box::after{
+        bottom:29px !important;
+    }
+    .con-box::after{
+        right:-64px !important;
+    }
+  }
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    .contact a, .mail a {
+        font-size: 16px;
+    }
+  }
+  @media(min-width:767px) and (max-width:991px){
+    .foot-contacts{
+    
+        margin-left:0px;
+        margin-right:0px;
+    }
+    .contact{
+        text-align:right;
+    }
+    .contact a{
+        margin-left:-32px;
+    }
+    .mail{
+        text-align:right;
+    }
+    .contact a, .mail a{
+        font-size:13px;
+    }
+    /* .con-layer{
+        width:141px;
+        height:57px;
+    } */
+    .soc-book{
+        left:36%;
+    }
+    .con-box a img{
+        margin:7px 13px;
+        width:56%;
+    }
+    .con-box:before, .con-box:after{
+        bottom:25px;
+    }
+    .con-box:before{
+        left:-45px;
+    }
+    .con-box:after{
+        right:-45px;
+    }
+    .thin-footer p{
+        font-size:11px;
+    }
+    .contact img {
+        width: 25px;
+      }
+      .mail img {
+        width: 37px;
+  }
+  .foot-poly {
+    top: -52%;
+  }
+  }
+  @media(min-width:600px) and (max-width:767px){
+    .contact{
+        text-align:center;
+    }
+    .con-box a img{
+        width:30%;
+    }
+    /* .con-layer{
+        width:250px;
+        height:56px;
+    } */
+    .soc-book{
+        left:39%;
+    }
+    .con-box:before{
+        left:-65px;
+    }
+    .con-box:after{
+        right:-65px;
+    }
+    .mail{
+        text-align:center;
+    }
+    .box-line{
+        width: 60px;
+        height: 2px;
+        background-color: #423C3D;
+        margin: auto 0px;
+        position: relative;
+    }
+    .mob-lan{
+        justify-content:center;
+    }
+    .con-layer{
+        width:98%;
+    }
+    .thin-footer{
+        padding: 11px 0 8px 0;
+    }
+    .thin-footer p{
+        text-align:center;
+    }
+    .mails{
+        display:flex;
+        justify-content:center;
+    
+      }
+      .foot-tab{
+        justify-content:center;
+      }
+      .foot-poly {
+        top: -52%;
+      }
+  }
+
+  @media(min-width:750px) and (max-width:765px){
+    .contact img{
+        width:5% !important;
+    }
+    .mail img{
+        width:8% !important;
+    }
+  }
+  @media(min-width:360px) and (max-width:599px){
+    .foot-contacts{
+    
+        margin-left:0px;
+        margin-right:0px;
+    }
+    .contact{
+        text-align:center;
+    }
+    .mail{
+        text-align:center;
+    }
+    .con-layer{
+        width:98%;
+    }
+    .thin-footer{
+        padding:20px 0 0 0;
+    }
+    .footer-inner{
+        padding-top:50px;
+        padding-bottom:40px;
+    }
+    .contact img{
+        width:10%;
+    }
+    .mail img{
+        width:14%;
+    }
+    .mails{
+        display:block;
+    }
+    .con-box::before, .con-box::after{
+        bottom:27px;
+    }
+    .foot-poly{
+        top:-13%;
+    }
+    
+  }
+
+  @media(min-width:374px) and (max-width:395px){
+    
+    .con-box::before, .con-box::after{
+        bottom:29px !important;
+    }
+    .con-box::before{
+        left:-58px !important;
+    }
+    .con-box::after{
+        right:-58px !important;
+    }
+  }
+
+  @media(min-width:400px) and (max-width:430px){
+    .con-box:before{
+        left:-64px !important;
+    }
+    .con-box:before, .con-box:after{
+        bottom:30px !important;
+    }
+    .con-box:after{
+        right:-64px !important;
+    }
+    .contact img{
+        width:8% !important;
+    }
+    .mail img{
+        width:12% !important;
+    }
+    .soc-book{
+        top:-68% !important;
+    }
+  }
+
+  @media(min-width:900px) and (max-width:928px){
+    .con-box::before{
+        left:-53px !important;
+    }
+    .con-box::after{
+        right:-53px !important;
+    }
+    .con-box::before, .con-box::after{
+        bottom:28px !important;
+    }
+    .mail{
+        text-align:left !important;
+    }
+    .sld-name{
+        padding:2px 30px !important;
+    }
+    .con-layer{
+        width:98% !important;
+    }
+    .contact img{
+        width:14% !important;
+    }
+    .mail img{
+        width:16% !important;
+    }
+  }
+  @media(min-width:800px) and (max-width:829px){
+    .con-box::before, .con-box::after{
+        bottom:26px !important;
+    }
+  }
+  @media(min-width:830px) and (max-width:898px){
+    .con-box::before, .con-box::after{
+        bottom:27px !important;
+    }
+    .con-layer{
+        width:97% !important;
+    }
+    .mail img{
+        width:16% !important;
+    }
+    .con-box::before, .con-box::after{
+        bottom:27px !important;
+    }
+  }
+  @media(min-width:1270px) and (max-width:1285){
+    .con-box::before, .con-box::after{
+        bottom:23px !important;
+    }
+    .con-box::before{
+        left:-46px !important;
+    }
+    .con-box::right{
+        right:-46px !important;
+    }
+    
+  }
+  @media(min-width:1365px) and (max-width:1399px){
+    .con-box::before{
+        left:-48px;
+    }
+    .con-box::after{
+        right:-48px;
+    }
+    .con-box::before, .con-box::after{
+        bottom:24px;
+    }
+    
+  
+}

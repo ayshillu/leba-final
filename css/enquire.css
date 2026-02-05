@@ -1,0 +1,159 @@
+.formoverlay-popup-bg {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	display: none;
+	z-index: 11111;
+}
+.fpopup {
+	margin: 35px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	width: 30%;
+	position: relative;
+	transition: all .5s ease-in-out;
+	/* top: 20px; */
+}
+.fpopup .close {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	transition: all 200ms;
+	font-size: 23px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+    cursor: pointer;
+}
+.fpopup .close:hover {
+  	color: #C54E47;
+}
+.fpopup .content {
+  	max-height: 30%;
+      position: unset !important;
+  	/* overflow: auto; */
+/*	margin-top: 5%;*/
+	text-align: center;
+/*	font-weight: bold;*/
+}
+.fpopup .content h3 {
+    font-size: 20px;
+    margin: auto;
+}
+.fpopup .content a {
+    font-size: 15px;
+}
+.fpopup .content a:hover {
+    text-decoration: none;
+}
+#enquire-form .popup {
+    width: 30%;
+    /* overflow-x: hidden; */
+}
+
+.fpopup h4 {
+    font-family: 'Lato-Bold';
+}
+#enquire-form .popup {
+    /* background: url(../images/form-bg.jpg); */
+    background-size: cover;
+    /* background: #fff; */
+}
+#enquire-form .popup label {
+    text-align: left;
+    position: absolute;
+    left: 31px;
+    z-index: 111;
+    top: -12px;
+    background: #fff;
+    padding: 0 6px;
+    width: auto;
+    font-size: 13px;
+}
+#enquire-form .popup input, #enquire-form .popup select, #enquire-form .popup textarea {
+    /* border-radius: 0px; */
+    /* border: none; */
+    font-size: 14px;
+    height: 40px;
+    /* background: #f7f7f8; */
+    background: #fff;
+    padding-top: 15px;
+    /* box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); */
+}
+#enquire-form .popup textarea {
+    height: 55px;
+}
+#enquire-form .popup .btn {
+    background: #383838;
+    color: #fff;
+    height: auto;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.enqiure-now-sticky {
+    background: #383838;
+    color: #fff;
+    position: fixed;
+    right: -50px;
+    top: 50%;
+    border: none;
+    padding: 7px 10px 5px;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    z-index: 11;
+}
+.req {
+    color: red;
+}
+.error {
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* border: 1px solid green; */
+  /* -webkit-text-fill-color: green; */
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 600px) {
+    .enqiure-now-sticky {
+        /* right: -38px; */
+    }
+}
+@media screen and (max-width: 992px){
+  .fpopup{
+    width: 70%;
+  }
+  #enquire-form .popup {
+    width: 80%;
+}
+.formoverlay-popup-bg {
+    overflow-y: scroll;
+}
+}
+
+@media (width: 1024px) {
+    #enquire-form .popup {
+        width: 60%;
+    }
+}
