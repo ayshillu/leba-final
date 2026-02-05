@@ -72,6 +72,47 @@ function initThreeJS() {
     });
 }
 
+function initSmoothScroll() {
+    // Dynamically load Lenis if appropriate, or user can add <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    if (typeof Lenis === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
+        script.onload = startLenis;
+        document.head.appendChild(script);
+    } else {
+        startLenis();
+    }
+
+    function startLenis() {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Integrate with GSAP ScrollTrigger
+        if (typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        }
+    }
+}
+
 function initAnimations() {
     if (typeof gsap === 'undefined') return;
 
@@ -83,38 +124,58 @@ function initAnimations() {
         y: -100,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out'
+        ease: 'power4.out',
+        delay: 0.2
     });
 
-    // Scroll Reveals
+    // Scroll Reveals (Panel)
     const panels = document.querySelectorAll('.reveal-panel');
     panels.forEach(panel => {
-        gsap.from(panel, {
-            scrollTrigger: {
-                trigger: panel,
-                start: "top 80%",
+        gsap.fromTo(panel,
+            {
+                y: 100,
+                opacity: 0,
+                scale: 0.95
             },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            scale: 0.98,
-            ease: 'power2.out'
-        });
+            {
+                scrollTrigger: {
+                    trigger: panel,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1.2,
+                ease: 'power3.out'
+            }
+        );
     });
 
-    // Text Reveals
+    // Text Reveals (Blur Effect)
     const texts = document.querySelectorAll('.reveal-text');
     texts.forEach(text => {
-        gsap.from(text, {
-            scrollTrigger: {
-                trigger: text,
-                start: "top 90%",
+        gsap.fromTo(text,
+            {
+                filter: 'blur(20px)',
+                y: 50,
+                opacity: 0,
+                scale: 1.1
             },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
+            {
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse"
+                },
+                filter: 'blur(0px)',
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1.5,
+                ease: 'expo.out'
+            }
+        );
     });
 }
 
@@ -169,6 +230,7 @@ function initLightbox() {
 
 window.addEventListener('load', () => {
     initThreeJS();
+    initSmoothScroll();
     initAnimations();
     initMobileMenu();
     initLightbox();
