@@ -146,7 +146,8 @@ function initAnimations() {
                 scrollTrigger: {
                     trigger: panel,
                     start: "top 85%", // Smooth entry point
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none none",
+                    once: true
                 },
                 y: 0,
                 opacity: 1,
@@ -173,7 +174,8 @@ function initAnimations() {
                 scrollTrigger: {
                     trigger: text,
                     start: "top 92%",
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none none",
+                    once: true
                 },
                 filter: 'blur(0px)',
                 y: 0,
@@ -190,7 +192,12 @@ function initAnimations() {
         gsap.fromTo(img,
             { scale: 1.1, opacity: 0.5 },
             {
-                scrollTrigger: { trigger: img, start: "top 90%" },
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top 90%",
+                    toggleActions: "play none none none",
+                    once: true
+                },
                 scale: 1,
                 opacity: 1,
                 duration: 1.5,
