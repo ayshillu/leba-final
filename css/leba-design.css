@@ -187,7 +187,7 @@ p {
 }
 
 .text-gradient-blue-grey {
-  background: linear-gradient(135deg, #3B82F6 0%, #9CA3AF 100%);
+  background: linear-gradient(135deg, #1B2637 0%, #2D3A4F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1060,4 +1060,97 @@ textarea.form-control {
   .hide-on-desktop {
     display: none !important;
   }
+}
+
+/* Related Products Section Polish */
+.related-products-section {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+  background: white !important;
+}
+
+.related-products-section .d-flex {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px !important;
+  width: 100%;
+}
+
+.related-products-section .btn {
+  border-radius: 100px !important;
+  padding: 10px 16px !important;
+  font-size: 0.9rem !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  min-height: auto !important;
+  border-width: 1px !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background: white !important;
+  color: var(--text-primary) !important;
+}
+
+.related-products-section .btn:hover {
+  background: var(--text-primary) !important;
+  color: white !important;
+  border-color: var(--text-primary) !important;
+}
+
+@media (max-width: 900px) {
+  .related-products-section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .related-products-section .d-flex {
+    grid-template-columns: 1fr 1fr !important;
+    /* 2 pills per row */
+    gap: 10px !important;
+  }
+
+  .related-products-section .btn {
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Applications Section Refinement */
+.applications-section {
+  background: var(--bg-primary) !important;
+}
+
+.applications-section .main-wrapper span {
+  background: white !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: var(--text-primary) !important;
+}
+
+
+/* View Specifications Button Polishing */
+.btn[href="#specifications"] {
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  background: transparent !important;
+  border: 1px solid var(--color-gold) !important;
+  color: var(--color-gold) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn[href="#specifications"]:hover {
+  background: var(--color-gold) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
 }
