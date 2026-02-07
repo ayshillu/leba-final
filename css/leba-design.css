@@ -2,7 +2,7 @@
   /* --- NEW PALETTE (Leba Papers 2026) --- */
   --color-deep-ink: #1B2637;
   --color-paper-stone: #4A5568;
-  --color-gold: #C9A96E;
+  --color-gold: #3B82F6;
   --color-copper: #B8845F;
   --color-porcelain: #F8F6F3;
   --color-linen: #EFEBE4;
@@ -29,7 +29,7 @@
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
   --color-accent: var(--color-gold);
-  --color-accent-hover: #B8945A;
+  --color-accent-hover: #2563EB;
   --color-border: rgba(27, 38, 55, 0.1);
 
   /* Typography */
@@ -53,7 +53,7 @@
   --shadow-sm: 0 1px 3px rgba(27, 38, 55, 0.06), 0 1px 2px rgba(27, 38, 55, 0.04);
   --shadow-md: 0 4px 12px rgba(27, 38, 55, 0.08), 0 2px 4px rgba(27, 38, 55, 0.04);
   --shadow-lg: 0 12px 32px rgba(27, 38, 55, 0.10), 0 4px 8px rgba(27, 38, 55, 0.04);
-  --shadow-gold: 0 4px 16px rgba(201, 169, 110, 0.25);
+  --shadow-gold: 0 4px 16px rgba(59, 130, 246, 0.25);
 }
 
 /* Reduced Motion */
@@ -137,8 +137,10 @@ h6 {
 h1 {
   font-size: 56px;
   line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  /* Semi-Bold per request */
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
 h2 {
@@ -178,6 +180,15 @@ p {
   opacity: 0.7;
 }
 
+.text-gradient-blue-grey {
+  background: linear-gradient(135deg, #3B82F6 0%, #9CA3AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -197,7 +208,7 @@ p {
 
 .btn-primary {
   background-color: var(--color-gold);
-  color: var(--text-primary);
+  color: white;
   border: none;
 }
 
@@ -310,22 +321,24 @@ p {
 }
 
 .btn-pill-dark {
-  background-color: var(--color-gold);
-  color: var(--text-primary) !important;
+  background: #1B2637;
+  color: white !important;
   border-radius: var(--radius-full);
   padding: 10px 28px;
   font-size: 0.95rem;
   font-weight: 700;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
   display: inline-flex;
 }
 
 .btn-pill-dark:hover {
-  background-color: var(--color-accent-hover);
+  background: #2D3A4F;
+  /* Slightly lighter for hover */
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  color: white !important;
 }
 
 /* Dropdowns */
@@ -485,6 +498,29 @@ p {
 }
 
 /* Hero Section Styles (B2B Industrial) */
+.panel-hero-modern {
+  position: relative;
+  background-color: var(--bg-dark);
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+/* Gradient Overlay via Pseudo-element (Unified UI) */
+.panel-hero-modern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .hero-content-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -493,16 +529,80 @@ p {
   min-height: 85vh;
   padding-top: 60px;
   padding-bottom: 100px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-overlay {
-  background: none;
+  display: none;
+  /* Replaced by ::after for better control */
+}
+
+/* Enhanced Label Tag (Unified UI) */
+.hero-text-col .label-text {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 1 !important;
+}
+
+.hero-text-col .label-text::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #3B82F6;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Enhanced Buttons (Unified UI) */
+.hero-text-col .btn {
+  background: white !important;
+  color: #1a1a1a !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 14px 28px !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  min-height: 48px;
+}
+
+.hero-text-col .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background-color: #f8f8f8 !important;
+}
+
+.hero-text-col .btn-outline {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.hero-text-col .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
 }
 
 .hero-visual-col {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* Mobile Nav */
@@ -524,7 +624,7 @@ p {
 
 .hamburger.active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
-  background: white;
+  background: var(--text-primary);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -533,36 +633,90 @@ p {
 
 .hamburger.active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
-  background: white;
+  background: var(--text-primary);
 }
 
 .mobile-nav-overlay {
   position: fixed;
   top: 0;
   right: 0;
-  width: 85%;
-  max-width: 400px;
+  width: 90%;
+  max-width: 450px;
   height: 100vh;
-  background: var(--bg-dark);
-  padding: 80px 40px;
+  background: var(--bg-primary);
+  /* Light Theme */
+  padding: 80px 24px;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2000;
   display: flex;
   flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-overlay.active {
   transform: translateX(0);
-  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
 }
 
-.mobile-nav-overlay a {
-  color: var(--text-inverse);
-  font-size: 1.5rem;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.mobile-nav-link,
+.mobile-nav-toggle {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-toggle:hover {
+  color: var(--color-gold);
+  padding-left: 8px;
+  /* Subtle slide animation */
+}
+
+.mobile-nav-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: rgba(255, 255, 255, 0.5);
+  /* Slight separation */
+}
+
+.submenu-inner {
+  padding: 12px 0 24px 16px;
+}
+
+.mobile-col-group h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.mobile-col-group a {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-primary);
+  padding: 8px 0;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-col-group a:hover {
+  color: var(--color-gold);
+  transform: translateX(4px);
 }
 
 /* Footer & Panels */
@@ -599,6 +753,10 @@ p {
 
   .header-inner {
     padding: 0 24px;
+  }
+
+  .header-actions {
+    display: none !important;
   }
 
   .nav-links {
@@ -639,76 +797,23 @@ p {
   }
 
   /* Hero Mobile */
-  .panel-hero-modern {
-    background-image: url('/images/hero-image.png') !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+  .panel-hero-modern.hero-home {
+    background-image: url('../images/hero-image.png') !important;
   }
 
-  /* Hide the separate layer on mobile since we are applying to parent */
-  .hero-bg-layer {
-    display: none !important;
-  }
-
-  /* Hero Mobile Content & Overlay */
+  /* Hero Mobile Content Layout */
   .hero-content-grid {
     display: flex !important;
     flex-direction: column;
-    /* Ratio 4:5 (Portrait) */
     aspect-ratio: 4/5;
     min-height: auto;
-    /* Remove fixed vh height */
     padding: 32px 24px 60px 24px;
     justify-content: flex-end;
-    /* Content at bottom */
-    position: relative;
-    z-index: 2;
   }
 
-  /* Dark Gradient Overlay for Readability */
-  .panel-hero-modern::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    /* Gradient covers bottom half */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .hero-overlay {
-    display: none;
-  }
-
-  /* Tag Styling (Screenshot Match) */
+  /* Tag Tuning for Mobile */
   .hero-text-col .label-text {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(4px);
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: white !important;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
     margin-bottom: 16px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  .hero-text-col .label-text::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #3B82F6;
-    /* Blue dot */
-    border-radius: 50%;
-    margin-right: 8px;
   }
 
   /* Typography Overrides */
@@ -728,7 +833,7 @@ p {
     text-align: left;
   }
 
-  /* Buttons (Side-by-Side White) */
+  /* Mobile Buttons Grouping */
   .hero-text-col .d-flex {
     flex-direction: row !important;
     width: 100% !important;
@@ -737,18 +842,10 @@ p {
 
   .hero-text-col .btn {
     flex: 1;
-    background: white !important;
-    color: #1a1a1a !important;
-    border: none !important;
-    border-radius: 4px;
-    font-size: 14px;
-    padding: 12px 16px !important;
-    font-weight: 600;
-    margin-bottom: 0;
-    /* Reset margin */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    justify-content: center;
+    height: 40px !important;
+    min-height: 40px !important;
+    font-size: 13px;
+    padding: 0 12px !important;
   }
 
   h1 {
@@ -896,8 +993,7 @@ textarea.form-control {
   }
 }
 
-/ *   T a b l e   S t y l e s   * / 
-}
+/* Table Styles */
 
 /* Table Styles */
 .spec-table {
